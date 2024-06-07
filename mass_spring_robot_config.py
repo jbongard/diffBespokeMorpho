@@ -135,4 +135,17 @@ def robotD():
 
     return objects, springs
 
-robots = [robotA, robotB, robotC, robotD]
+def robotE():
+
+   resolution = 10
+
+   wanderings = np.zeros([resolution-1,resolution-1],dtype='f')
+
+   turtleX = resolution/2
+   turtleY = resolution/2
+
+   wanderings[turtleX,turtleY] = 1
+
+   print(wanderings)
+
+robots = [robotA, robotB, robotC, robotD, robotE]
