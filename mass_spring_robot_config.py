@@ -165,9 +165,6 @@ def robotE():
 
          turtleX = turtleX - 1
 
-         if turtleX < minX:
-            minX = turtleX
-
       elif newDirection == 1: # East
 
          turtleX = turtleX + 1
@@ -176,12 +173,16 @@ def robotE():
 
          turtleY = turtleY - 1
 
-         if turtleY < minY:
-            minY = turtleY
-
       else: # South
 
          turtleY = turtleY + 1
+
+      if turtleX < minX:
+         minX = turtleX
+
+      if turtleY < minY:
+         minY = turtleY
+
 
    for turtlePosition in squares:
         
