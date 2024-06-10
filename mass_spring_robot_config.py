@@ -1,3 +1,4 @@
+import datetime
 import random
 
 objects = []
@@ -138,12 +139,18 @@ def robotD():
 
 def robotE():
 
+   current_datetime = datetime.datetime.now()
+
+   timestamp = current_datetime.timestamp()
+
+   random.seed(timestamp)
+
    turtleX = 0
    turtleY = 0
 
    squares = {}
 
-   for i in range(5):
+   for i in range(10):
 
       if (turtleX,turtleY) not in squares:
          squares[turtleX,turtleY] = 0.15
