@@ -1,6 +1,7 @@
+import random
+
 objects = []
 springs = []
-
 
 def add_object(x):
     objects.append(x)
@@ -143,14 +144,32 @@ def robotE():
    squares = {}
 
    for i in range(5):
+
       if (turtleX,turtleY) not in squares:
          squares[turtleX,turtleY] = 0.15
-      turtleY = turtleY + 1
+
+      newDirection = random.randint(0, 3)
+
+      if newDirection == 0: # West
+
+         turtleX = turtleX - 1
+
+      elif newDirection == 1: # East
+
+         turtleX = turtleX + 1
+
+      elif newDirection == 2: # North
+
+         turtleY = turtleY - 1
+
+      else: # South
+
+         turtleY = turtleY + 1
 
    for turtlePosition in squares:
-
+        
       add_mesh_square( turtlePosition[0] , turtlePosition[1] , actuation = squares[turtlePosition] )
-
+      
    return objects, springs
       
 robots = [robotA, robotB, robotC, robotD, robotE]
