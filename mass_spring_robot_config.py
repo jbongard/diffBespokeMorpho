@@ -137,15 +137,20 @@ def robotD():
 
 def robotE():
 
-   resolution = 10
+   turtleX = 0
+   turtleY = 0
 
-   wanderings = np.zeros([resolution-1,resolution-1],dtype='f')
+   squares = {}
 
-   turtleX = resolution/2
-   turtleY = resolution/2
+   for i in range(5):
+      if (turtleX,turtleY) not in squares:
+         squares[turtleX,turtleY] = 0.15
+      turtleY = turtleY + 1
 
-   wanderings[turtleX,turtleY] = 1
+   for turtlePosition in squares:
 
-   print(wanderings)
+      add_mesh_square( turtlePosition[0] , turtlePosition[1] , actuation = squares[turtlePosition] )
 
+   return objects, springs
+      
 robots = [robotA, robotB, robotC, robotD, robotE]
