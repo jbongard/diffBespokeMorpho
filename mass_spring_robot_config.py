@@ -139,6 +139,7 @@ def robotD():
 
 def robotE():
 
+
    current_datetime = datetime.datetime.now()
 
    timestamp = current_datetime.timestamp()
@@ -147,6 +148,9 @@ def robotE():
 
    turtleX = 0
    turtleY = 0
+
+   minX = 1000
+   minY = 1000
 
    squares = {}
 
@@ -161,6 +165,9 @@ def robotE():
 
          turtleX = turtleX - 1
 
+         if turtleX < minX:
+            minX = turtleX
+
       elif newDirection == 1: # East
 
          turtleX = turtleX + 1
@@ -169,13 +176,16 @@ def robotE():
 
          turtleY = turtleY - 1
 
+         if turtleY < minY:
+            minY = turtleY
+
       else: # South
 
          turtleY = turtleY + 1
 
    for turtlePosition in squares:
         
-      add_mesh_square( turtlePosition[0] , turtlePosition[1] , actuation = squares[turtlePosition] )
+      add_mesh_square( turtlePosition[0]  - minX , turtlePosition[1] - minY , actuation = squares[turtlePosition] )
       
    return objects, springs
       
