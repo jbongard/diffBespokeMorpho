@@ -241,6 +241,7 @@ def forward(output=None, visualize=True):
                     return (x[0], x[1])
 
                 a = act[t - 1, i] * 0.5
+                a = np.nan_to_num(a)
                 r = 2
                 if spring_actuation[i] == 0:
                     a = 0
