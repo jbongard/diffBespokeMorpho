@@ -154,7 +154,7 @@ def robotE():
 
    squares = {}
 
-   for i in range(10):
+   for i in range(20):
 
       if (turtleX,turtleY) not in squares:
          squares[turtleX,turtleY] = 0.15
