@@ -316,12 +316,12 @@ def optimize(toi, visualize):
                 2 / (n_hidden + n_springs)) * 3
 
     losses = []
-    # forward('initial{}'.format(robot_id), visualize=visualize)
+    forward('initial{}'.format(robot_id), visualize=True)
     for iter in range(optimizationSteps): # 100):
         clear()
         # with ti.ad.Tape(loss) automatically clears all gradients
         with ti.ad.Tape(loss):
-            forward(visualize=visualize)
+            forward(output=None,visualize=False)
 
         print('Iter=', iter, 'Loss=', loss[None])
 
@@ -399,7 +399,7 @@ def main():
         pickle.dump(ret, open('losses.pkl', 'wb'))
         print("Losses saved to losses.pkl")
     else:
-        optimize(toi=True, visualize=True)
+        optimize(toi=True, visualize=False)
         clear()
         forward('final{}'.format(robot_id),visualize=True)
 
